@@ -1,0 +1,2 @@
+INSERT INTO users VALUES (users_seq.NEXTVAL, '김철수', 'kim@example.com', TO_DATE('2026-10-01 09:00:00', 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO users VALUES (users_seq.NEXTVAL, 'Lee', NULL, TO_DATE('2026-10-02 18:30:00', 'YYYY-MM-DD HH24:MI:SS'));

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:oracle:thin:@//localhost:1521/XEPDB1}
+    username: ${DB_USERNAME:sample}
+    password: ${DB_PASSWORD:}
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    # Oracle 은 null 파라미터를 기본값(OTHER)으로 넘기면 '부적합한 열 유형: 1111' 에러
+    jdbc-type-for-null: 'NULL'
+
+logging:
+  level:
+    # SQL + 결과 표 로그. 운영에서는 info 로 내리면 인터셉터가 즉시 통과(오버헤드 없음)
+    com.example.mybatislog.config.SqlLogInterceptor: debug
+    # 기존 MyBatis 내장 로그(한 줄 SQL)는 중복되므로 mapper 패키지 debug 설정은 제거
